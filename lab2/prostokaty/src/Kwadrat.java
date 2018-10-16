@@ -1,8 +1,10 @@
 public class Kwadrat {
 
-    double a;
+    protected double a;
 
     public Kwadrat(double a) {
+        if(a < 0)
+            System.out.println("bok nie moze miec wartosci ujemnej");
         this.a = a;
     }
 

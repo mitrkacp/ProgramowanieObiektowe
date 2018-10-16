@@ -1,9 +1,11 @@
 public class Prostokat extends Kwadrat {
 
-    double b;
+    protected double b;
 
     public Prostokat(double a, double b) {
         super(a);
+        if(b < 0)
+            System.out.println("dlugosc boku musi nie moze byc ujemna");
         this.b = b;
     }
 
