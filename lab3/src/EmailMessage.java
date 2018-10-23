@@ -17,7 +17,17 @@ public class EmailMessage {
     private LinkedList<String> cc; //optional
     private LinkedList<String> bcc; // optional
 
-    protected EmailMessage(){}
+    protected EmailMessage(String from, LinkedList<String> to, String subject, String content, String mimeType, LinkedList<String> cc, LinkedList<String> bcc)
+    {
+        this.from = from;
+        this.to = to;
+        this.subject = subject;
+        this.content = content;
+        this.mimeType = mimeType;
+        this.cc = cc;
+        this.bcc = bcc;
+    }
+
     protected EmailMessage(Builder builder){
         if(builder == null)return;
         from = builder.from;
@@ -140,6 +150,22 @@ public class EmailMessage {
 
         public Builder addContent(String c){
             content = c;
+            return this;
+        }
+
+        public Builder addMimeType(String m)
+        {
+            mimeType = m;
+            return this;
+        }
+        public Builder addCC(String c)
+        {
+            cc.add(c);
+            return this;
+        }
+        public Builder addBCC(String b)
+        {
+            bcc.add(b);
             return this;
         }
 
