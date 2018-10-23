@@ -118,7 +118,7 @@ public class EmailMessage {
                 from = f;
             }
             else{
-                System.out.println("podaj poprawny adres email: ");
+                System.out.println("bledny adres nadawcy");
             }
             return this;
         }
@@ -128,7 +128,7 @@ public class EmailMessage {
                 to.addLast(t);
             }
             else{
-                System.out.println("podaj poprawny adres email: ");
+                System.out.println("bledny adres odbiorcy");
             }
             return this;
         }
