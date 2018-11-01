@@ -6,12 +6,11 @@ public class ROT11 implements Algorithm {
         StringBuilder out = new StringBuilder();
         for (int i = 0; i < in.length(); i++) {
             ascii = in.charAt(i);
-            ascii += 11;
-            if(ascii > 122){
-                ascii = ascii - 26;
+            if(ascii < 123 && ascii > 96){
+                ascii = 97 + ((ascii + 11 - 97) % 26);
             }
-            else if( ascii > 90 && ascii < 108){
-                ascii = ascii - 26;
+            else if(ascii < 91 && ascii > 64){
+                ascii = 65 + ((ascii + 11 - 65) % 26);
             }
             out.append((char) ascii);
         }
@@ -23,12 +22,11 @@ public class ROT11 implements Algorithm {
         StringBuilder out = new StringBuilder();
         for (int i = 0; i < in.length(); i++) {
             ascii = in.charAt(i);
-            ascii -= 11;
-            if(ascii < 97 && ascii > 86){
-                ascii = ascii + 26;
+            if(ascii < 123 && ascii > 96){
+                ascii = 122 - ((122 - ascii + 11) % 26);
             }
-            else if( ascii < 65){
-                ascii = ascii + 26;
+            else if(ascii < 91 && ascii > 64){
+                ascii = 90 - ((90 - ascii + 11) % 26);
             }
             out.append((char) ascii);
         }
