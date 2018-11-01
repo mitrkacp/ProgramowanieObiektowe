@@ -7,10 +7,10 @@ public class Main {
     public static void main(String[] args) {
         int szyfrowanie = 0;
         int algorytm = 0;
-        File in = new File("daneDoZaszyfrowania.txt");
+        File in = new File(args[0]);
         PrintWriter out = null;
         try {
-            out = new PrintWriter("zaszyfrowane.txt");
+            out = new PrintWriter(args[1]);
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
