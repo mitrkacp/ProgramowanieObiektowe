@@ -37,6 +37,8 @@ public class Main {
 
         } catch (InvalidFormat e) {
             System.err.println(e.getMessage());
+        } catch (Throwable e) {
+            System.err.println(e.getStackTrace()[0].toString());
         }
         outputFile.close();
     }
