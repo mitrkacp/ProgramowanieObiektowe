@@ -25,24 +25,19 @@ public class Main {
         if (fps < 0) {
             System.err.println("Framerate can't be negative");
         }
+
         PrintWriter outputFile = null;
         try {
             outputFile = new PrintWriter(pathOut);
+            File in = new File(pathIn);
+            Subtitles.delay(in, outputFile, delay_ms, fps);
+
         } catch (FileNotFoundException e) {
             System.err.println("Invalid Path: " + pathOut);
-            return;
-        }
-        File in = new File(pathIn);
 
-        try {
-            Subtitles.delay(in, outputFile, delay_ms, fps);
         } catch (InvalidFormat e) {
             System.err.println(e.getMessage());
-            return;
-        } catch (FileNotFoundException e){
-            System.err.println(e.getMessage());
         }
-
         outputFile.close();
     }
 }
