@@ -7,8 +7,11 @@ import java.util.LinkedList;
 public class MyPanel extends JPanel {
     LinkedList<Shape> shapes;
 
-    MyPanel(){
+    MyPanel(LinkedList<Shape> shapes_){
         shapes = new LinkedList<>();
+        for(Shape shape: shapes_){
+            shapes.add(shape);
+        }
     }
 
     @Override

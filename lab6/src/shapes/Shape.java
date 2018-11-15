@@ -3,7 +3,7 @@ package shapes;
 import javax.swing.*;
 import java.awt.*;
 
-public abstract class Shape extends JPanel {
+public abstract class Shape {
     public String name;
     public int offsetX,offsetY;
 
