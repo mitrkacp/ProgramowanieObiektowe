@@ -1,24 +1,23 @@
 package plots;
 
-import javax.naming.event.ObjectChangeListener;
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.awt.event.*;
 
 public class Plot extends JPanel implements ActionListener {
     private static final int size = 600;
     private int a_=1,b_=0,c_=0,from_ = -10,to_ = 10,scale_=100;
-    private JTextField a = new JTextField(3);
-    private JTextField b = new JTextField(3);
-    private JTextField c = new JTextField(3);
-    private JTextField scale = new JTextField(3);
-    private JTextField from = new JTextField(3);
-    private JTextField to = new JTextField(3);
+    private JTextField a = new JTextField("1",3);
+    private JTextField b = new JTextField("0",3);
+    private JTextField c = new JTextField("0",3);
+    private JTextField scale = new JTextField("50",3);
+    private JTextField from = new JTextField("-10",3);
+    private JTextField to = new JTextField("10",3);
     private JButton ok = new JButton("rysuj");
 
     public Plot() {
         setPreferredSize(new Dimension(size, size));
+
     }
 
     @Override
@@ -69,9 +68,6 @@ public class Plot extends JPanel implements ActionListener {
             g.setColor(new  Color(0, 0, 0) );
             g.drawLine(0, size / 2, size, size / 2);
             g.drawLine(size / 2, 0, size / 2, size);
-            if(x == from_ || x == to_){
-                g.drawString(Integer.toString((int)x),arg,size/2);
-            }
 
         }
         g.drawString("x", size - 10, size / 2);
@@ -87,7 +83,6 @@ public class Plot extends JPanel implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        //Object source = e.getSource();
         if(e.getSource()==ok){
             a_=Integer.parseInt(a.getText());
             b_=Integer.parseInt(b.getText());
@@ -97,40 +92,6 @@ public class Plot extends JPanel implements ActionListener {
             scale_=Integer.parseInt(scale.getText());
             repaint();
         }
-
-
-        /*if(source == a) {
-            String s = a.getText();
-            a_=Integer.parseInt(s);
-            repaint();
-        }
-
-        else if(source == b) {
-            String s = b.getText();
-            b_=Integer.parseInt(s);
-            repaint();
-        }
-
-        else if(source == c) {
-            String s = c.getText();
-            c_=Integer.parseInt(s);
-            repaint();
-        }
-        else if(source == scale) {
-            String s = scale.getText();
-            scale_=Integer.parseInt(s);
-            repaint();
-        }
-        else if(source == from) {
-            String s = from.getText();
-            from_=Integer.parseInt(s);
-            repaint();
-        }
-        else if(source == to) {
-            String s = to.getText();
-            to_=Integer.parseInt(s);
-            repaint();
-        }*/
 
     }
 
