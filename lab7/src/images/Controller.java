@@ -1,24 +1,23 @@
 package images;
 
-import javafx.event.ActionEvent;
+
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.TilePane;
+import javafx.stage.DirectoryChooser;
+import javafx.stage.FileChooser;
+import javafx.stage.Stage;
 
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import static javafx.scene.input.MouseEvent.MOUSE_CLICKED;
 
 public class Controller implements Initializable {
 
@@ -29,7 +28,15 @@ public class Controller implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb){
 
-        folder = new File("foto");
+        DirectoryChooser chooser = new DirectoryChooser();
+        File dir = chooser.showDialog(new Stage());
+
+        if(dir == null){
+            folder = new File("foto");
+        }else{
+            folder = new File(dir.getAbsolutePath());
+        }
+
         File[] files = folder.listFiles();
 
         TilePane tilePane = new TilePane();
